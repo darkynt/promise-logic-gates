@@ -1,5 +1,5 @@
 function isPromise(promiseLikeObject) {
-	return typeof promiseLikeObject.then === 'function')
+	return (typeof promiseLikeObject.then === 'function')
 }
 
 function or(iterable) {

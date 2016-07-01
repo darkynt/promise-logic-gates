@@ -1,6 +1,6 @@
 {
   "name": "promise-control",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Control Flow functions for Promises",
   "main": "index.js",
   "scripts": {
