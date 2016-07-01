@@ -10,7 +10,7 @@ function or(iterable) {
 	// Only rejects if all of the supplied promises reject
 	return new Promise((resolve, reject) => {
 		for (let i = 0; i < iterable.length; i += 1) {
-			let curr = iterable[i];
+			let cur = iterable[i];
 			if (isPromise(cur)) {
 				cur.then((val) => {
 					return resolve(val);
