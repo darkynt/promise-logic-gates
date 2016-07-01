@@ -1,8 +1,8 @@
 var promiseHelpers = require ('../index');
 
 function PromiseLogic(promiseLib) {
-	promiseLib.prototype.or = promiseHelpers.or;
-	promiseLib.prototype.and = promiseHelpers.and;
+	promiseLib.or = promiseHelpers.or;
+	promiseLib.and = promiseHelpers.and;
 	return promiseLib;
 }
 
