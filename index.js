@@ -1,3 +1,5 @@
+'use strict';
+
 function isPromise(promiseLikeObject) {
 	return (typeof promiseLikeObject.then === 'function')
 }
@@ -6,9 +8,9 @@ function or(iterable) {
 	var rejected = [];
 	// Resolves with the value of the first promise that resolves
 	// Only rejects if all of the supplied promises reject
-	return new Promise(resolve, reject) {
+	return new Promise((resolve, reject) => {
 		for (let i = 0; i < iterable.length; i += 1) {
-			let curr = iterable[0];
+			let curr = iterable[i];
 			if (isPromise(cur)) {
 				cur.then((val) => {
 					return resolve(val);
@@ -22,7 +24,7 @@ function or(iterable) {
 			}
 		}
 		return reject();
-	}
+	});
 }
 
 function and(iterable) {
@@ -30,7 +32,7 @@ function and(iterable) {
 	// Resolves with an array containing the resolve
 	// value of all supplied promises (in order)
 	// If any of the supplied promises reject, immediately rejects
-	return new Promise(resolve, reject) {
+	return new Promise((resolve, reject) => {
 		for (let i = 0; i < iterable.length; i += 1) {
 			let cur = iterable[i];
 			if (isPromise(cur)) {
@@ -46,7 +48,7 @@ function and(iterable) {
 			}
 		}
 		return reject();
-	}
+	});
 }
 
 module.exports = {
